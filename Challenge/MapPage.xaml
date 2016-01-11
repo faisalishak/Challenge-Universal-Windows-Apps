@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Challenge.MapPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Challenge"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <StackPanel x:Name="SearchControl"
+                            Orientation="Horizontal">
+                <CheckBox x:Name="TrafficCheckbox"
+                              Content="Show Traffic"
+                              Width="100"
+                              Height="50"
+                              Margin="15 35  15 15"
+                              Checked="TrafficCheckbox_Checked"
+                              Unchecked="TrafficCheckbox_Unchecked"></CheckBox>
+                <Button x:Name="MapStyleButton"
+                            Content="Aerial"
+                            Width="100"
+                            Height="50"
+                            Margin="15"
+                            Click="MapStyleButton_Click"></Button>
+            </StackPanel>
+            <maps:MapControl x:Name="MapControl"
+                                 Height="500"></maps:MapControl>
+        </StackPanel>
+    </Grid>
+</Page>

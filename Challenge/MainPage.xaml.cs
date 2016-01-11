@@ -29,7 +29,16 @@ namespace Challenge
 
         private void RadioButton_Click(object sender, RoutedEventArgs e)
         {
+            var radiobutton = sender as RadioButton;
 
+            if (radiobutton != null)
+            {
+                switch(radiobutton.Tag.ToString()){
+                    case "Map":
+                        MainFrame.Navigate(typeof(MapPage));
+                        break;
+                }
+            }
         }
 
         private void HarmburgerButton_Click(object sender, RoutedEventArgs e)

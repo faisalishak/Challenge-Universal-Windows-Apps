@@ -13,7 +13,7 @@
                    IsPaneOpen="True">
             <SplitView.Pane>
                 <StackPanel Margin="0 30 0 0">
-                    <RadioButton Tag="map"
+                    <RadioButton Tag="Map"
                                  Click="RadioButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Map"></SymbolIcon>
@@ -21,7 +21,7 @@
                                        Margin="15 0 0 0"></TextBlock>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Tag="map"
+                    <RadioButton Tag="Addfriend"
                                  Click="RadioButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="AddFriend"></SymbolIcon>
@@ -29,7 +29,7 @@
                                        Margin="15 0 0 0"></TextBlock>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Tag="map"
+                    <RadioButton Tag="Mail"
                                  Click="RadioButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Mail"></SymbolIcon>
@@ -37,7 +37,7 @@
                                        Margin="15 0 0 0"></TextBlock>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Tag="map"
+                    <RadioButton Tag="Settings"
                                  Click="RadioButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Setting"></SymbolIcon>
@@ -47,6 +47,7 @@
                     </RadioButton>
                 </StackPanel>
             </SplitView.Pane>
+            <Frame x:Name="MainFrame"/>
         </SplitView>
         <Button x:Name="HarmburgerButton"
                 Width="{Binding ElementName=MySplitview, Path=CompactPaneLength}"
