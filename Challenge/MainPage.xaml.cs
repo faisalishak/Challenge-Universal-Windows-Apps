@@ -26,5 +26,16 @@ namespace Challenge
         {
             this.InitializeComponent();
         }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void HarmburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.MySplitview.IsPaneOpen = this.MySplitview.IsPaneOpen ? false : true;
+        }
+
     }
 }
