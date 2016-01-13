@@ -7,49 +7,93 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+     <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="text_color">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitview.DisplayMode"
+                            Value="Overlay"/>
+                        <Setter Target="MySplitview.IsPaneOpen"
+                            Value="false"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Compact">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitview.DisplayMode"
+                            Value="CompactOverlay"/>
+                        <Setter Target="MySplitview.IsPaneOpen"
+                            Value="false"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitview.DisplayMode"
+                            Value="CompactInline"/>
+                        <Setter Target="MySplitview.IsPaneOpen"
+                            Value="true"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <SplitView Name="MySplitview"
                    DisplayMode="Inline"
-                   IsPaneOpen="True">
+                   IsPaneOpen="True"
+                   Background="White">
             <SplitView.Pane>
-                <StackPanel Margin="0 30 0 0">
-                    <RadioButton Tag="Map"
-                                 Click="RadioButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Map"></SymbolIcon>
-                            <TextBlock Text="Map"
-                                       Margin="15 0 0 0"></TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Tag="Addfriend"
-                                 Click="RadioButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="AddFriend"></SymbolIcon>
-                            <TextBlock Text="Add Friend"
-                                       Margin="15 0 0 0"></TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Tag="Mail"
-                                 Click="RadioButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Mail"></SymbolIcon>
-                            <TextBlock Text="Mail"
-                                       Margin="15 0 0 0"></TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Tag="Settings"
-                                 Click="RadioButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Setting"></SymbolIcon>
-                            <TextBlock Text="Settings"
-                                       Margin="15 0 0 0"></TextBlock>
-                        </StackPanel>
-                    </RadioButton>
-                </StackPanel>
-            </SplitView.Pane>
-            <Frame x:Name="MainFrame"/>
-        </SplitView>
-        <Button x:Name="HarmburgerButton"
+            <StackPanel Margin="0 30 0 0" Background="DarkGray">
+                <RadioButton Tag="Map"
+                                     Click="RadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Map"></SymbolIcon>
+                        <TextBlock Text="Map"
+                                           Margin="15 0 0 0" Style="{StaticResource text_color}"></TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Tag="Addfriend"
+                                     Click="RadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="AddFriend"></SymbolIcon>
+                        <TextBlock Text="Add Friend"
+                                           Margin="15 0 0 0" Style="{StaticResource text_color}"></TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Tag="Mail"
+                                     Click="RadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Mail"></SymbolIcon>
+                        <TextBlock Text="Mail"
+                                           Margin="15 0 0 0" Style="{StaticResource text_color}"></TextBlock>
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Tag="Settings"
+                                     Click="RadioButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Setting"></SymbolIcon>
+                        <TextBlock Text="Settings"
+                                           Margin="15 0 0 0"  Style="{StaticResource text_color}"></TextBlock>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+        </SplitView.Pane>
+        <Frame x:Name="MainFrame"/>
+    </SplitView>
+    <Button x:Name="HarmburgerButton"
                 Width="{Binding ElementName=MySplitview, Path=CompactPaneLength}"
                 VerticalAlignment="Top"
                 Click="HarmburgerButton_Click">
