@@ -9,7 +9,37 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchControl.(RelativePanel.AlignRightWithPanel)"
+                            Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.Below)"
+                            Value="SearchControl"/>
+                        <Setter Target="MapControl.(RelativePanel.AlignRightWithPanel)"
+                            Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchControl.(RelativePanel.AlignRightWithPanel)"
+                            Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.AlignTopWithPanel)"
+                            Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.LeftOf)"
+                            Value="SearchControl"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
             <StackPanel x:Name="SearchControl"
                             Orientation="Horizontal">
                 <CheckBox x:Name="TrafficCheckbox"
@@ -27,7 +57,8 @@
                             Click="MapStyleButton_Click"></Button>
             </StackPanel>
             <maps:MapControl x:Name="MapControl"
-                                 Height="500"></maps:MapControl>
-        </StackPanel>
+                             RelativePanel.AlignBottomWithPanel="True"
+                             RelativePanel.AlignLeftWithPanel="True"/>
+        </RelativePanel>
     </Grid>
 </Page>
