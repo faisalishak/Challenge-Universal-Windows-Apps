@@ -38,6 +38,7 @@ namespace Challenge
                         MainFrame.Navigate(typeof(MapPage));
                         break;
                 }
+                MySplitview.IsPaneOpen = false ;
             }
         }
 
