@@ -26,9 +26,9 @@ namespace Challenge
             MapControl.Center = new Geopoint(new BasicGeoposition()
             {
                 //geo for seattle
-                Latitude = 47.604, Longitude = -122.329
+                Latitude = -06.8706, Longitude = 107.7238
             });
-            MapControl.ZoomLevel = 12;
+            MapControl.ZoomLevel = 15;
         }
 
         private void TrafficCheckbox_Checked(object sender, RoutedEventArgs e)
@@ -58,7 +58,7 @@ namespace Challenge
         private async void MapControl_MapTapped(Windows.UI.Xaml.Controls.Maps.MapControl sender, Windows.UI.Xaml.Controls.Maps.MapInputEventArgs args)
         {
             var tappedGeopositoin = args.Location.Position;
-            string status = $"Map tapped at \nLatitude : {tappedGeopositoin.Latitude}" + $"\nLongitude: { tappedGeopositoin.Longitude} ";
+            string status = $"faisal.ishak92 - checked in at \nLatitude : {tappedGeopositoin.Latitude}" + $"\nLongitude: { tappedGeopositoin.Longitude} ";
             var messageDialog = new MessageDialog(status);
             await messageDialog.ShowAsync();
         }

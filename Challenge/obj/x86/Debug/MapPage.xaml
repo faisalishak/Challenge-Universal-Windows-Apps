@@ -9,26 +9,57 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <StackPanel x:ConnectionId='1' x:Name="SearchControl"
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:ConnectionId='1' x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchControl.(RelativePanel.AlignRightWithPanel)"
+                            Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.Below)"
+                            Value="SearchControl"/>
+                        <Setter Target="MapControl.(RelativePanel.AlignRightWithPanel)"
+                            Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='2' x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchControl.(RelativePanel.AlignRightWithPanel)"
+                            Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.AlignTopWithPanel)"
+                            Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.LeftOf)"
+                            Value="SearchControl"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
+            <StackPanel x:ConnectionId='3' x:Name="SearchControl"
                             Orientation="Horizontal">
-                <CheckBox x:ConnectionId='3' x:Name="TrafficCheckbox"
+                <CheckBox x:ConnectionId='5' x:Name="TrafficCheckbox"
                               Content="Show Traffic"
                               Width="100"
                               Height="50"
                               Margin="15 35  15 15"
                                                                
                                                                    ></CheckBox>
-                <Button x:ConnectionId='4' x:Name="MapStyleButton"
+                <Button x:ConnectionId='6' x:Name="MapStyleButton"
                             Content="Aerial"
                             Width="100"
                             Height="50"
                             Margin="15"
                                                         ></Button>
             </StackPanel>
-            <maps:MapControl x:ConnectionId='2' x:Name="MapControl"
-                                 Height="500"></maps:MapControl>
-        </StackPanel>
+            <maps:MapControl x:ConnectionId='4' x:Name="MapControl"
+                             RelativePanel.AlignBottomWithPanel="True"
+                             RelativePanel.AlignLeftWithPanel="True"/>
+        </RelativePanel>
     </Grid>
 </Page>
 

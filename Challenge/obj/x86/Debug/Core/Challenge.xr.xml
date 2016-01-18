@@ -20,6 +20,7 @@
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
       <RootProperty Name="Value" />
+      <RootProperty Name="Target" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ControlTemplate">
       <RootProperty Name="Template" />
@@ -28,17 +29,38 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
+      <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualStateManager">
+      <RootMethod Name="GetVisualStateGroups" />
+    </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
+      <RootProperty Name="States" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualState">
+      <RootProperty Name="StateTriggers" />
+      <RootProperty Name="Setters" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
+      <RootProperty Name="MinWindowWidth" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="Name" />
       <RootProperty Name="DisplayMode" />
       <RootProperty Name="IsPaneOpen" />
+      <RootProperty Name="Background" />
       <RootProperty Name="Pane" />
       <RootProperty Name="Content" />
     </RootType>
@@ -57,6 +79,7 @@
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Background" />
       <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
@@ -68,15 +91,17 @@
     <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
       <RootProperty Name="Symbol" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Text" />
-      <RootProperty Name="Margin" />
-    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="Challenge.MainPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Maps.MapControl">
-      <RootProperty Name="Height" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
+      <RootProperty Name="Children" />
+      <RootMethod Name="GetAlignBottomWithPanel" />
+      <RootMethod Name="SetAlignBottomWithPanel" />
+      <RootMethod Name="GetAlignLeftWithPanel" />
+      <RootMethod Name="SetAlignLeftWithPanel" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Maps.MapControl" />
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Content" />
       <RootProperty Name="Width" />
